@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول | MEDO</title>
+
+
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background:
+            radial-gradient(circle at top right, rgba(147, 51, 234, .2), transparent 35%),
+            linear-gradient(135deg, #080d1b, #111a33, #1b1230);
+        font-family: Arial, sans-serif;
+        color: #f8fafc;
+    }
+
+    .login-box {
+        width: 100%;
+        max-width: 410px;
+        padding: 35px 28px;
+        border-radius: 24px;
+        text-align: center;
+        background: rgba(21, 29, 53, .96);
+        border: 1px solid rgba(168, 85, 247, .4);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, .4);
+    }
+
+    .login-box h1 {
+        color: #c084fc;
+        font-size: 38px;
+        margin: 0 0 8px;
+        letter-spacing: 2px;
+    }
+
+    .subtitle {
+        color: #cbd5e1;
+        margin: 0 0 28px;
+        line-height: 1.7;
+    }
+
+    .login-box h2 {
+        color: #f8fafc;
+        font-size: 23px;
+        margin-bottom: 12px;
+    }
+
+    .login-box input {
+        display: block;
+        width: 100%;
+        padding: 14px;
+        margin: 14px 0;
+        border: 1px solid #394563;
+        border-radius: 11px;
+        background: #0b1020;
+        color: white;
+        font-size: 16px;
+        outline: none;
+    }
+
+    .login-box input::placeholder { color: #94a3b8; }
+
+    .login-box input:focus {
+        border-color: #a855f7;
+        box-shadow: 0 0 0 3px rgba(168, 85, 247, .15);
+    }
+
+    .login-box button {
+        width: 100%;
+        padding: 14px;
+        margin-top: 15px;
+        background: linear-gradient(135deg, #9333ea, #7e22ce);
+        color: white;
+        border: none;
+        border-radius: 11px;
+        cursor: pointer;
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    .login-box button:disabled {
+        opacity: .6;
+        cursor: not-allowed;
+    }
+
+    #message {
+        margin-top: 16px;
+        font-size: 14px;
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-top: 17px;
+        color: #c084fc;
+        text-decoration: none;
+    }
+
+    .back-link:hover { color: #e9d5ff; }
+
+    @media (max-width: 450px) {
+        .login-box { padding: 28px 20px; }
+    }
+</style>
+
+
+</head>
+
+<body>
+
+
+<div class="login-box">
+    <h1>MEDO</h1>
+    <p class="subtitle">نظم يومك، وحقق أهدافك ✨</p>
+
+    <h2>تسجيل الدخول 🔐</h2>
+
+    <form id="loginForm">
+        <input
+            type="email"
+            id="email"
+            placeholder="البريد الإلكتروني"
+            autocomplete="email"
+            required
+        >
+
+        <input
+            type="password"
+            id="password"
+            placeholder="كلمة المرور"
+            autocomplete="current-password"
+            required
+        >
+
+        <button type="submit" id="loginBtn">دخول</button>
+    </form>
+
+    <p id="message" aria-live="polite"></p>
+
+    <a href="index.html" class="back-link">العودة للموقع الرئيسي</a>
+    <br>
+    <a href="register.html" class="back-link">إنشاء حساب جديد 📝</a>
+</div>
+
+<script type="module">
+    import { supabase } from './supabase.js';
+
+    const form = document.getElementById('loginForm');
+    const button = document.getElementById('loginBtn');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', login);
+
+    function showMessage(text, color) {
+        message.style.color = color;
+        message.textContent = text;
+    }
+
+    async function login(event) {
+        event.preventDefault();
+
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+
+        if (!email || !password) {
+            showMessage('اكتب البريد الإلكتروني وكلمة المرور', '#f87171');
+            return;
+        }
+
+        button.disabled = true;
+        button.textContent = 'جاري تسجيل الدخول...';
+
+        let loginSuccess = false;
+
+        try {
+            const { error } = await supabase.auth.signInWithPassword({
+                email,
+                password
+            });
+
+            if (error) {
+                showMessage('خطأ: ' + error.message, '#f87171');
+                return;
+            }
+
+            loginSuccess = true;
+            showMessage('أهلاً بيك! جاري الدخول...', '#4ade80');
+
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 700);
+
+        } catch (error) {
+            showMessage('تعذر الاتصال. حاول تاني.', '#f87171');
+            console.error('Login error:', error);
+
+        } finally {
+            if (!loginSuccess) {
+                button.disabled = false;
+                button.textContent = 'دخول';
+            }
+        }
+    }
+</script>
+
+
+</body>
+</html>

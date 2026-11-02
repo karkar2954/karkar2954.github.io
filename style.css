@@ -1,0 +1,1800 @@
+body {
+    background-color: #111827;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+    padding: 50px;
+}
+
+.card {
+    background-color: #1e3a8a;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    margin: 50px auto;
+    box-shadow: 0 0 20px #000;
+    animation: fadeIn 1.5s ease;
+}
+
+h1 {
+    color: #38bdf8;
+    font-size: 40px;
+}
+
+h2 {
+    color: #facc15;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1f2937;
+    padding: 15px 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.navbar h2 {
+    color: #38bdf8;
+}
+
+.nav-links a,
+.nav-links a:visited {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+#themeBtn {
+    background-color: #38bdf8;
+    color: #111827;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.whatsapp {
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+}
+
+.about,
+.goals,
+.projects {
+    background-color: #374151;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 30px 0;
+}
+
+.project-card {
+    background-color: #1f2937;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+.skills {
+    margin-top: 35px;
+}
+
+.skills span {
+    display: inline-block;
+    background-color: #374151;
+    color: #38bdf8;
+    padding: 10px 18px;
+    margin: 8px;
+    border-radius: 20px;
+}
+
+/* الساعة والتاريخ */
+.clock {
+    background-color: #374151;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 30px 0;
+}
+
+#time {
+    font-size: 35px;
+    color: #38bdf8;
+    font-weight: bold;
+}
+
+#date {
+    font-size: 20px;
+    color: white;
+}
+
+/* عدد الزيارات */
+.visits {
+    background-color: #374151;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 30px 0;
+}
+
+/* رسالة الترحيب */
+#greeting {
+    font-size: 28px;
+    color: #facc15;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+/* قائمة المهام */
+.todo {
+    background: #374151;
+    padding: 25px;
+    border-radius: 20px;
+    margin: 30px 0;
+}
+
+#taskInput {
+    width: 70%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+}
+
+.todo button {
+    background: #38bdf8;
+    color: #111827;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#taskList li {
+    background: #1f2937;
+    padding: 15px;
+    margin: 12px 0;
+    border-radius: 12px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+#taskList li.completed {
+    text-decoration: line-through;
+    color: #9ca3af;
+    opacity: 0.6;
+}
+
+.card:hover,
+.about:hover,
+.goals:hover,
+.clock:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#searchTask,
+#taskFilter {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+#searchTask:focus,
+#taskFilter:focus {
+    border-color: #00c853;
+}
+/* الوضع النهاري */
+body.light {
+    background-color: #f3f4f6;
+    color: #111827;
+}
+
+body.light .card,
+body.light .navbar {
+    background-color: white;
+    color: #111827;
+}
+
+body.light .nav-links a {
+    color: #111827;
+}
+
+body.light h1 {
+    color: #2563eb;
+}
+
+body.light h2 {
+    color: #1e40af;
+}
+
+body.light p {
+    color: #333;
+}
+
+body.light .skills span {
+    background-color: #dbeafe;
+}
+
+/* الهاتف */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    .card {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+}
+.progress-container {
+    width: 100%;
+    height: 15px;
+    background-color: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#progressBar {
+    width: 0%;
+    height: 100%;
+    background-color: #00c853;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+#progressText {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 8px;
+}
+/* تحسين شكل الموقع على الموبايل */
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .card,
+    .todo,
+    .clock,
+    .visits {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 15px 0;
+    }
+
+    input,
+    select,
+    button {
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 5px 0;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+}
+.profile-logo {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 20px auto;
+    border: 4px solid #2563eb;
+    box-shadow: 0 0 20px #2563eb;
+}
+/* تنسيق قسم المشاريع */
+#projects {
+    text-align: center;
+    margin: 40px auto;
+}
+
+.project-card {
+    background: white;
+    color: #222;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.project-card a {
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.project-card a:hover {
+    background: #1d4ed8;
+}
+/* حركات ناعمة للموقع */
+section, .project-card, .card {
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* حركة الأزرار */
+button, .project-card a {
+    transition: 0.3s ease;
+}
+
+button:hover, .project-card a:hover {
+    transform: scale(1.05);
+}
+#backToTop {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+/* الملف الشخصي */
+.profile-section {
+    background: #1f2937;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: 0 0 20px #000;
+}
+
+.profile-section h2 {
+    color: #38bdf8;
+}
+
+.profile-avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #38bdf8;
+    margin: 15px auto;
+}
+
+.profile-info {
+    background: #374151;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 12px 0;
+}
+
+.profile-section button {
+    background: #38bdf8;
+    color: #111827;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 8px;
+}
+
+body.light .profile-section {
+    background: white;
+    color: #111827;
+}
+
+body.light .profile-info {
+    background: #e5e7eb;
+}
+/* تصميم الإنجازات */
+.achievements-section {
+    background: #1f2937;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 900px;
+    margin: 30px auto;
+    box-shadow: 0 0 20px #000;
+}
+
+.achievements-section h2 {
+    color: #facc15;
+}
+
+.achievement-card {
+    background: #374151;
+    padding: 18px;
+    border-radius: 15px;
+    margin: 12px 0;
+    text-align: right;
+    color: white;
+}
+
+.achievement-card span {
+    color: #facc15;
+}
+
+body.light .achievements-section {
+    background: white;
+    color: #111827;
+}
+
+body.light .achievement-card {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+/* Medo student platform refresh */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{padding:22px;max-width:1400px;margin:auto}
+.navbar{position:sticky;top:10px;z-index:20;gap:16px;flex-wrap:wrap;backdrop-filter:blur(12px)}
+.navbar h2{margin:0;color:#38bdf8}.nav-links{display:flex;gap:9px;flex-wrap:wrap;justify-content:center}.nav-links a{color:#e5e7eb;text-decoration:none;padding:8px 10px;border-radius:9px;font-size:15px}.nav-links a:hover{background:#374151}
+.platform-hero{margin:28px auto 22px;padding:48px 24px 28px;max-width:1100px;border:1px solid rgba(56,189,248,.25);border-radius:24px;background:radial-gradient(circle at 15% 10%,rgba(56,189,248,.2),transparent 35%),linear-gradient(135deg,#172554,#111827 70%);text-align:center}
+.hero-kicker{display:inline-block;color:#7dd3fc;font-size:14px;font-weight:bold}.platform-hero h1{font-size:clamp(32px,5vw,54px);margin:12px 0}.platform-hero h1 span{color:#38bdf8}.platform-hero>p{max-width:650px;margin:0 auto 22px;color:#d1d5db;font-size:18px}
+.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.hero-actions a{padding:12px 20px;border-radius:11px;text-decoration:none;font-weight:bold}.hero-primary{background:#0284c7;color:white}.hero-secondary{border:1px solid #64748b;color:#e5e7eb}
+.platform-shortcuts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:32px auto 0;max-width:850px}.platform-shortcuts a{display:flex;flex-direction:column;gap:5px;padding:15px 8px;border-radius:14px;background:rgba(255,255,255,.08);color:white;text-decoration:none}.platform-shortcuts b{font-size:26px}.platform-shortcuts small{color:#cbd5e1}
+.study-intro{max-width:1050px;margin:35px auto;padding:25px 12px}.study-intro>p{color:#cbd5e1}.study-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}.study-points article{background:rgba(128,128,128,.12);border:1px solid rgba(148,163,184,.22);border-radius:16px;padding:18px}.study-points article>span{font-size:28px}.study-points h3{margin:8px 0;color:#7dd3fc}.study-points p{font-size:16px;margin:0;color:#d1d5db}
+#todo-area,.dashboard,.achievements-section,.profile-section{max-width:1050px;margin:28px auto}.colors,.backgrounds{margin:12px auto;display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+@media(max-width:700px){body{padding:12px}.navbar{position:static;justify-content:center}.nav-links{width:100%}.platform-hero{padding:32px 16px}.platform-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}.study-points{grid-template-columns:1fr}.platform-hero>p{font-size:16px}}
+
+
+/* Medo Pro landing section */
+.medo-pro-section{max-width:1100px;margin:55px auto;padding:34px 22px;border-radius:24px;background:#ffffff;color:#111827;box-sizing:border-box}
+/* Improve Medo Pro plan text contrast */
+.medo-pro-section .medo-pro-heading h2,.medo-pro-section .medo-pro-heading p,.medo-pro-section .pro-card,.medo-pro-section .pro-card h3,.medo-pro-section .pro-card li,.medo-pro-section .plan-price,.medo-pro-section .plan-price small,.medo-pro-section .plan-label,.medo-pro-section .pro-note{color:#111827;opacity:1}
+.medo-pro-section .medo-pro-heading p,.medo-pro-section .pro-note,.medo-pro-section .plan-price small{color:#374151}
+.medo-pro-section .pro-card{background:#f8fafc}
+.medo-pro-section .pro-card-featured{background:#eff6ff}
+.medo-pro-heading{text-align:center;max-width:700px;margin:0 auto 28px}
+.pro-kicker{display:inline-block;color:var(--primary-color,#2563eb);font-weight:700;margin-bottom:8px}
+.medo-pro-heading h2{font-size:2rem;margin:8px 0}
+.medo-pro-heading p,.pro-note{line-height:1.9;opacity:.82}
+.pro-status{display:inline-block;margin-top:8px;padding:7px 13px;border-radius:30px;background:#fff4d6;color:#805600;font-size:.9rem;font-weight:700}
+.pro-plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.pro-card{border:1px solid var(--border-color,#ddd);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.pro-card-featured{border:2px solid var(--primary-color,#2563eb);background:color-mix(in srgb,var(--primary-color,#2563eb) 6%,transparent)}
+.plan-label{font-size:.9rem;font-weight:700;opacity:.75}
+.pro-card h3{font-size:1.45rem;margin:0}
+.plan-price{font-weight:700;font-size:1.15rem;margin:0}
+.pro-card ul{padding-right:20px;line-height:2.1;flex:1}
+.pro-button{display:block;text-align:center;border:0;border-radius:12px;padding:13px 16px;background:var(--primary-color,#2563eb);color:#fff;text-decoration:none;font:inherit;font-weight:700}
+.pro-button-light{background:transparent;color:var(--primary-color,#2563eb);border:1px solid var(--primary-color,#2563eb)}
+.pro-button:disabled{opacity:.65;cursor:not-allowed}
+.pro-note{text-align:center;margin:22px auto 0;max-width:800px;font-size:.9rem}
+@media(max-width:600px){.medo-pro-section{margin:30px 12px;padding:25px 15px}.medo-pro-heading h2{font-size:1.65rem}}
+
+
+/* Medo Pro membership status */
+.pro-account-status{max-width:760px;margin:22px auto 12px;padding:16px 18px;border:1px solid var(--border-color, #d5dbe5);border-radius:14px;background:var(--card-bg, #fff);color:var(--text-color, #172033);text-align:center}
+.pro-account-status strong{display:block;font-size:1.05rem;margin-bottom:6px;color:var(--text-color, #172033)}
+.pro-account-status p{margin:0;color:var(--text-color, #344054)}
+.pro-account-status .pro-expiry{margin-top:7px;font-size:.92rem;opacity:.9}
+/* تحسين وضوح الكتابة في موقع Medo */
+body {
+    color: #f9fafb;
+}
+
+section p,
+section li,
+section label,
+section span {
+    opacity: 1;
+}
+
+/* النصوص الثانوية في الخلفيات الداكنة */
+.study-intro > p,
+.study-points p,
+.platform-hero > p {
+    color: #e5e7eb;
+    opacity: 1;
+}
+
+/* وضوح النصوص داخل البطاقات الداكنة */
+.todo,
+.clock,
+.visits,
+.about,
+.goals,
+.profile-info,
+.achievement-card {
+    color: #f9fafb;
+}
+
+.todo p,
+.clock p,
+.visits p,
+.about p,
+.goals p,
+.profile-info p,
+.achievement-card p {
+    color: #f3f4f6;
+    opacity: 1;
+}
+
+/* وضوح الكتابة داخل خانات الإدخال */
+input,
+textarea,
+select {
+    color: #111827;
+    background-color: #ffffff;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #6b7280;
+    opacity: 1;
+}
+
+/* الحفاظ على وضوح الوضع النهاري */
+body.light {
+    color: #111827;
+}
+
+body.light section p,
+body.light section li,
+body.light section label {
+    color: #1f2937;
+    opacity: 1;
+}
+/* إصلاح لون الكتابة في خطط المذاكرة */
+#studyPlan input,
+#studyPlan textarea,
+#studyPlan select,
+.study-plan input,
+.study-plan textarea,
+.study-plan select {
+    color: #111827 !important;
+    background-color: #ffffff !important;
+}
+
+#studyPlan input::placeholder,
+#studyPlan textarea::placeholder,
+.study-plan input::placeholder,
+.study-plan textarea::placeholder {
+    color: #6b7280 !important;
+    opacity: 1;
+}
+/* إصلاح الكتابة في خطة المذاكرة */
+#study-planner input,
+#study-planner select,
+#weekly-planner input,
+#weekly-planner select {
+    color: #111827 !important;
+    background-color: #ffffff !important;
+}
+
+#study-planner input::placeholder,
+#weekly-planner input::placeholder {
+    color: #6b7280 !important;
+    opacity: 1 !important;
+}
+/* ===== Medo Dark Purple Theme ===== */
+
+:root {
+    --medo-navy: #0b1020;
+    --medo-card: #151d35;
+    --medo-purple: #9333ea;
+    --medo-purple-light: #a855f7;
+    --medo-text: #f8fafc;
+    --medo-muted: #cbd5e1;
+}
+
+body {
+    background: var(--medo-navy) !important;
+    color: var(--medo-text);
+}
+
+.navbar,
+.platform-hero,
+.study-intro,
+.study-planner,
+.weekly-planner,
+.dashboard,
+.achievements-section,
+.profile-section,
+.todo,
+.clock,
+.visits {
+    background: var(--medo-card) !important;
+    color: var(--medo-text) !important;
+    border-color: #9333ea !important;
+}
+
+.navbar h2,
+.platform-hero h1 span,
+.study-planner h2,
+.weekly-planner h2,
+.dashboard h2,
+.achievements-section h2,
+.profile-section h2 {
+    color: var(--medo-purple-light) !important;
+}
+
+.navbar a {
+    color: var(--medo-text) !important;
+}
+
+.navbar a:hover {
+    color: var(--medo-purple-light) !important;
+}
+
+button,
+.hero-primary,
+.pro-button {
+    background: var(--medo-purple) !important;
+    color: white !important;
+    border-color: var(--medo-purple) !important;
+}
+
+button:hover,
+.hero-primary:hover,
+.pro-button:hover {
+    background: #7e22ce !important;
+}
+
+.study-points article,
+.dashboard-card,
+.achievement-card,
+.project-card,
+.gallery-item,
+.profile-info {
+    background: #202944 !important;
+    color: var(--medo-text) !important;
+    border-color: #6b21a8 !important;
+}
+
+section p,
+section li,
+section label,
+.study-storage-note {
+    color: var(--medo-muted);
+}
+
+input,
+textarea,
+select {
+    background: #ffffff !important;
+    color: #111827 !important;
+    border: 1px solid #9333ea !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #6b7280 !important;
+    opacity: 1 !important;
+}
+
+.medo-pro-section {
+    background: var(--medo-card) !important;
+    color: var(--medo-text) !important;
+}
+
+.medo-pro-section .pro-card {
+    background: #202944 !important;
+    color: var(--medo-text) !important;
+}
+
+.medo-pro-section .pro-card h3,
+.medo-pro-section .pro-card li,
+.medo-pro-section .medo-pro-heading h2,
+.medo-pro-section .medo-pro-heading p,
+.medo-pro-section .pro-note {
+    color: var(--medo-text) !important;
+}
+/* ===== Medo Premium Cards Design ===== */
+
+/* الكروت والأقسام */
+.study-points article,
+.dashboard-card,
+.achievement-card,
+.project-card,
+.gallery-item,
+.profile-info,
+.todo,
+.clock,
+.visits,
+.study-planner,
+.weekly-planner {
+    border-radius: 18px !important;
+    border: 1px solid rgba(168, 85, 247, 0.25) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* حركة الكروت */
+.study-points article:hover,
+.dashboard-card:hover,
+.achievement-card:hover,
+.project-card:hover,
+.gallery-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(147, 51, 234, 0.2);
+}
+
+/* الأزرار */
+button,
+.hero-primary,
+.hero-secondary,
+.pro-button {
+    border-radius: 12px !important;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+button:hover,
+.hero-primary:hover,
+.hero-secondary:hover,
+.pro-button:hover {
+    transform: translateY(-2px);
+}
+
+/* الصور */
+.gallery-item img {
+    border-radius: 14px;
+    max-width: 100%;
+}
+
+/* العناوين */
+section h2 {
+    letter-spacing: 0.3px;
+}
+
+/* حقول الكتابة */
+input,
+textarea,
+select {
+    border-radius: 10px !important;
+    padding: 11px !important;
+}
+
+/* تحسين شكل الشريط العلوي */
+.navbar {
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+}
+/* ===== Medo Professional Homepage ===== */
+
+.platform-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 65px 30px !important;
+    border-radius: 0 0 35px 35px !important;
+    text-align: center;
+    background: linear-gradient(135deg, #111827, #31205a, #151d35) !important;
+    border-bottom: 2px solid #9333ea;
+}
+
+.platform-hero::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: rgba(147, 51, 234, 0.15);
+    border-radius: 50%;
+    top: -100px;
+    right: -70px;
+    filter: blur(10px);
+}
+
+.platform-hero h1 {
+    position: relative;
+    font-size: clamp(28px, 5vw, 48px);
+    margin: 20px 0;
+    color: #ffffff !important;
+}
+
+.platform-hero h1 span {
+    color: #c084fc !important;
+}
+
+.platform-hero > p {
+    position: relative;
+    font-size: 17px;
+    line-height: 1.9;
+    color: #e5e7eb !important;
+    max-width: 650px;
+    margin: 15px auto 25px;
+}
+
+.hero-kicker {
+    color: #d8b4fe;
+    font-weight: bold;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 25px 0 35px;
+}
+
+.hero-actions a {
+    padding: 13px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero-primary {
+    background: #9333ea !important;
+    color: white !important;
+}
+
+.hero-secondary {
+    background: transparent !important;
+    color: white !important;
+    border: 1px solid #a855f7;
+}
+
+.platform-shortcuts {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+    gap: 15px;
+    max-width: 850px;
+    margin: 35px auto 0;
+}
+
+.platform-shortcuts a {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    align-items: center;
+    padding: 20px 12px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(192, 132, 252, 0.25);
+    border-radius: 18px;
+    color: white !important;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.platform-shortcuts a:hover {
+    transform: translateY(-5px);
+    background: rgba(147, 51, 234, 0.2);
+    border-color: #a855f7;
+}
+
+.platform-shortcuts b {
+    font-size: 30px;
+}
+
+.platform-shortcuts strong {
+    font-size: 17px;
+}
+
+.platform-shortcuts small {
+    color: #cbd5e1;
+}
+
+@media (max-width: 600px) {
+    .platform-hero {
+        padding: 45px 15px !important;
+    }
+
+    .platform-shortcuts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* ===== Medo Professional Dashboard ===== */
+
+.dashboard {
+    padding: 30px 20px !important;
+    margin: 35px auto !important;
+    border-radius: 24px !important;
+    border: 1px solid rgba(168, 85, 247, 0.3) !important;
+}
+
+.dashboard > h2 {
+    color: #c084fc !important;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.dashboard > p {
+    color: #cbd5e1 !important;
+    margin-bottom: 25px;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+    margin: 25px 0;
+}
+
+.dashboard-card {
+    background: linear-gradient(145deg, #202944, #151d35) !important;
+    padding: 24px 18px !important;
+    border: 1px solid rgba(168, 85, 247, 0.3) !important;
+    border-radius: 20px !important;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    border-color: #a855f7 !important;
+    box-shadow: 0 12px 25px rgba(147, 51, 234, 0.18);
+}
+
+.dashboard-card h3 {
+    color: #e9d5ff !important;
+    font-size: 17px;
+}
+
+.dashboard-card p {
+    color: #c084fc !important;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.dashboard-card small {
+    color: #cbd5e1;
+}
+
+.progress-container {
+    background: #374151;
+    height: 12px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.progress-bar,
+#progressBar {
+    background: linear-gradient(90deg, #7e22ce, #c084fc);
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+#levelProgress {
+    background: linear-gradient(90deg, #9333ea, #d8b4fe);
+    height: 100%;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+#dashLevel {
+    color: #c084fc !important;
+    margin-top: 15px;
+}
+
+#nextLevel {
+    color: #cbd5e1 !important;
+}
+
+@media (max-width: 600px) {
+    .dashboard {
+        padding: 20px 12px !important;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .dashboard-card {
+        padding: 18px 10px !important;
+    }
+
+    .dashboard-card p {
+        font-size: 26px;
+    }
+}
+/* ===== Medo Achievements Design ===== */
+
+.achievements-section {
+    padding: 30px 20px !important;
+    margin: 35px auto !important;
+    border-radius: 24px !important;
+    text-align: center;
+}
+
+.achievements-section > h2 {
+    color: #c084fc !important;
+    font-size: 28px;
+}
+
+.achievements-section > p {
+    color: #cbd5e1 !important;
+    margin-bottom: 25px;
+}
+
+#achievementsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+    margin-top: 25px;
+}
+
+#achievementsList > * {
+    background: linear-gradient(145deg, #202944, #151d35);
+    border: 1px solid rgba(168, 85, 247, 0.35);
+    border-radius: 18px;
+    padding: 22px 15px;
+    color: #f8fafc;
+    transition: 0.3s ease;
+}
+
+#achievementsList > *:hover {
+    transform: translateY(-5px);
+    border-color: #c084fc;
+    box-shadow: 0 10px 25px rgba(147, 51, 234, 0.2);
+}
+
+@media (max-width: 600px) {
+    #achievementsList {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+}
+/* ===== Medo Professional Profile ===== */
+
+.profile-section {
+    padding: 35px 20px !important;
+    margin: 35px auto !important;
+    border-radius: 24px !important;
+    text-align: center;
+    border: 1px solid rgba(168, 85, 247, 0.35) !important;
+}
+
+.profile-section > h2 {
+    color: #c084fc !important;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.profile-avatar {
+    width: 145px !important;
+    height: 145px !important;
+    object-fit: cover;
+    border-radius: 50% !important;
+    border: 4px solid #a855f7;
+    padding: 4px;
+    background: #202944;
+    box-shadow: 0 0 25px rgba(147, 51, 234, 0.3);
+    margin-bottom: 20px;
+    transition: 0.3s ease;
+}
+
+.profile-avatar:hover {
+    transform: scale(1.05);
+}
+
+.profile-info {
+    max-width: 500px;
+    margin: 12px auto !important;
+    padding: 15px 20px !important;
+    border-radius: 14px !important;
+    background: #202944 !important;
+    border: 1px solid rgba(168, 85, 247, 0.25) !important;
+    text-align: right;
+}
+
+.profile-info p {
+    color: #e9d5ff !important;
+    margin: 0;
+    line-height: 1.8;
+}
+
+.profile-section button {
+    margin: 10px 5px;
+    padding: 12px 22px;
+}
+
+#avatarInput {
+    max-width: 100%;
+    margin: 15px auto !important;
+}
+
+@media (max-width: 600px) {
+    .profile-section {
+        padding: 25px 12px !important;
+    }
+
+    .profile-avatar {
+        width: 120px !important;
+        height: 120px !important;
+    }
+}
+/* ===== Medo Premium Tasks Design ===== */
+
+.todo {
+    padding: 30px 20px !important;
+    margin: 35px auto !important;
+    border-radius: 24px !important;
+}
+
+.todo h2 {
+    color: #c084fc !important;
+    font-size: 27px;
+    margin-bottom: 25px;
+}
+
+.todo > input,
+.todo > select {
+    margin: 7px 4px;
+    min-height: 44px;
+    max-width: 100%;
+}
+
+.todo > button {
+    margin: 7px 4px;
+    padding: 11px 18px;
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
+}
+
+#taskList li {
+    background: #202944;
+    color: #f8fafc;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 14px;
+    padding: 15px;
+    margin: 12px 0;
+    transition: 0.25s ease;
+}
+
+#taskList li:hover {
+    border-color: #a855f7;
+    transform: translateY(-2px);
+}
+
+.task-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.task-stats p {
+    background: #202944;
+    color: #e9d5ff !important;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 14px;
+    padding: 15px;
+    text-align: center;
+}
+
+.task-stats span {
+    color: #c084fc !important;
+    font-weight: bold;
+}
+
+#progressText {
+    color: #c084fc !important;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+    .todo {
+        padding: 20px 12px !important;
+    }
+
+    .todo > input,
+    .todo > select {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 7px 0;
+    }
+
+    .task-stats {
+        grid-template-columns: 1fr;
+    }
+}
+/* ===== Medo Weekly Planner Design ===== */
+
+.weekly-planner {
+    padding: 30px 20px !important;
+    margin: 35px auto !important;
+    border-radius: 24px !important;
+}
+
+.weekly-head h2 {
+    color: #c084fc !important;
+    font-size: 27px;
+}
+
+.weekly-head p {
+    color: #cbd5e1 !important;
+    line-height: 1.8;
+}
+
+.weekly-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+    align-items: end;
+}
+
+.weekly-form label {
+    color: #e9d5ff !important;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.weekly-form input,
+.weekly-form select {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 44px;
+}
+
+.weekly-form button {
+    min-height: 44px;
+}
+
+.weekly-days {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.weekly-days > * {
+    background: #202944;
+    color: #f8fafc;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 16px;
+    padding: 18px;
+    transition: 0.3s ease;
+}
+
+.weekly-days > *:hover {
+    border-color: #a855f7;
+    transform: translateY(-3px);
+}
+
+.weekly-days h3 {
+    color: #c084fc !important;
+}
+
+.weekly-days p,
+.weekly-days span {
+    color: #e5e7eb;
+}
+
+@media (max-width: 600px) {
+    .weekly-planner {
+        padding: 20px 12px !important;
+    }
+
+    .weekly-form,
+    .weekly-days {
+        grid-template-columns: 1fr;
+    }
+}
+/* ===== Medo Pro Premium Design ===== */
+
+.medo-pro-section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px 20px;
+    border-radius: 24px;
+    background: #151d35 !important;
+    color: #f8fafc !important;
+    border: 1px solid rgba(168, 85, 247, .35);
+}
+
+.medo-pro-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.medo-pro-heading h2 {
+    color: #c084fc !important;
+    font-size: 32px;
+}
+
+.medo-pro-heading p {
+    color: #cbd5e1 !important;
+    line-height: 1.8;
+}
+
+.pro-status {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 9px 18px;
+    border-radius: 30px;
+    background: rgba(147, 51, 234, .2);
+    color: #e9d5ff !important;
+}
+
+.pro-plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.pro-card {
+    background: #202944 !important;
+    color: #f8fafc !important;
+    border: 1px solid rgba(168, 85, 247, .3);
+    border-radius: 20px;
+    padding: 25px;
+    transition: .3s ease;
+}
+
+.pro-card:hover {
+    transform: translateY(-5px);
+    border-color: #c084fc;
+}
+
+.pro-card-featured {
+    border: 2px solid #9333ea !important;
+    background: linear-gradient(145deg, #292044, #202944) !important;
+}
+
+.pro-card h3 {
+    color: #e9d5ff !important;
+}
+
+.pro-card li {
+    color: #e5e7eb !important;
+    line-height: 2;
+}
+
+.plan-price {
+    color: #c084fc !important;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.plan-label {
+    color: #d8b4fe !important;
+}
+
+.pro-account-status {
+    margin: 25px 0;
+    padding: 18px;
+    border: 1px solid #9333ea;
+    border-radius: 15px;
+    background: #202944 !important;
+    color: #f8fafc !important;
+}
+
+.instapay-address {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 14px;
+    background: #202944;
+    border: 1px solid #9333ea;
+}
+
+.instapay-address strong {
+    color: #d8b4fe;
+    overflow-wrap: anywhere;
+}
+
+#proPaymentForm {
+    display: grid;
+    gap: 12px;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+#proPaymentForm input {
+    padding: 12px;
+    border-radius: 10px;
+    background: white !important;
+    color: #111827 !important;
+}
+
+.pro-note {
+    color: #cbd5e1 !important;
+    text-align: center;
+    line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+    .medo-pro-section {
+        margin: 25px 12px;
+        padding: 20px 12px;
+    }
+
+    .medo-pro-heading h2 {
+        font-size: 27px;
+    }
+
+    .instapay-address {
+        flex-direction: column;
+    }
+}
+/* ===== Medo Pro Payment Box ===== */
+
+.pro-payment-box {
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 28px;
+    background: linear-gradient(145deg, #202944, #151d35) !important;
+    border: 1px solid rgba(168, 85, 247, .45);
+    border-radius: 22px;
+    color: #f8fafc !important;
+    text-align: center;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .25);
+}
+
+.pro-payment-box h3 {
+    color: #c084fc !important;
+    font-size: 25px;
+    margin-bottom: 18px;
+}
+
+.pro-payment-box p {
+    color: #cbd5e1 !important;
+    line-height: 1.9;
+}
+
+.instapay-address {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 22px 0;
+    padding: 16px;
+    background: #0b1020 !important;
+    border: 1px solid #9333ea;
+    border-radius: 14px;
+}
+
+.instapay-address strong {
+    color: #d8b4fe !important;
+    font-size: 16px;
+    overflow-wrap: anywhere;
+}
+
+.instapay-address button,
+.pro-payment-box .pro-button {
+    background: linear-gradient(135deg, #9333ea, #7e22ce) !important;
+    color: white !important;
+    border: none;
+    border-radius: 11px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .25s ease;
+}
+
+.instapay-address button:hover,
+.pro-payment-box .pro-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(147, 51, 234, .3);
+}
+
+#proPaymentForm {
+    display: grid;
+    gap: 13px;
+    margin-top: 22px;
+    text-align: right;
+}
+
+#proPaymentForm label {
+    color: #e9d5ff;
+    font-weight: bold;
+}
+
+#proPaymentForm input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px;
+    border: 1px solid #9333ea;
+    border-radius: 10px;
+    background: white !important;
+    color: #111827 !important;
+    font-size: 16px;
+}
+
+#proPaymentMessage {
+    margin-top: 15px;
+    color: #d8b4fe !important;
+}
+
+@media (max-width: 600px) {
+    .pro-payment-box {
+        padding: 18px 14px;
+        margin: 22px 0;
+    }
+
+    .instapay-address {
+        flex-direction: column;
+    }
+
+    .instapay-address button {
+        width: 100%;
+    }
+}
+/* إشعارات Medo */
+#notificationBox {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notification {
+    background: linear-gradient(135deg, #6d28d9, #9333ea);
+    color: white;
+    padding: 15px 22px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    animation: notificationShow 0.3s ease;
+}
+
+@keyframes notificationShow {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* تحسين ألوان حالة اشتراك Medo Pro */
+#proAccountStatus {
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    border: 1px solid #6366f1;
+    border-radius: 16px;
+    padding: 20px;
+    color: #ffffff;
+    box-shadow: 0 5px 20px rgba(99, 102, 241, 0.2);
+}
+
+#proAccountStatus strong {
+    display: block;
+    color: #ff6b81;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#proAccountStatus p {
+    color: #f1f5f9;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+#proAccountStatus .pro-expiry {
+    color: #facc15;
+}
+/* الوضع النهاري */
+body.light-mode {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+body.light-mode .card,
+body.light-mode .feature-card,
+body.light-mode .dashboard-card {
+    background: #ffffff;
+    color: #1e293b;
+    border-color: #e2e8f0;
+}
+
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode p,
+body.light-mode label {
+    color: #1e293b;
+}
+
+body.light-mode nav,
+body.light-mode header {
+    background: #ffffff;
+    color: #1e293b;
+}
+/* ===== Medo Light Mode Fix ===== */
+
+body.light {
+    background: #f1f5f9 !important;
+    color: #1e293b !important;
+}
+
+body.light .navbar,
+body.light .dashboard,
+body.light .achievements-section,
+body.light .profile-section,
+body.light .todo,
+body.light .clock,
+body.light .visits,
+body.light .weekly-planner,
+body.light .study-planner,
+body.light .study-intro {
+    background: #ffffff !important;
+    color: #1e293b !important;
+    border-color: #d8b4fe !important;
+}
+
+body.light .platform-hero {
+    background: linear-gradient(135deg, #dbeafe, #f5f3ff) !important;
+}
+
+body.light .platform-hero h1,
+body.light .platform-hero h1 span,
+body.light .platform-hero p,
+body.light .study-intro p,
+body.light .dashboard h2,
+body.light .achievements-section h2,
+body.light .profile-section h2,
+body.light .todo h2,
+body.light .weekly-planner h2 {
+    color: #1e293b !important;
+}
+
+body.light .dashboard-card,
+body.light .achievement-card,
+body.light .project-card,
+body.light .gallery-item,
+body.light .profile-info,
+body.light .weekly-days > *,
+body.light .study-points article {
+    background: #f8fafc !important;
+    color: #1e293b !important;
+    border-color: #ddd6fe !important;
+}
+
+body.light .dashboard-card p,
+body.light .profile-info p,
+body.light .achievement-card p,
+body.light .weekly-days p,
+body.light .weekly-days span {
+    color: #334155 !important;
+}
+
+body.light .navbar a {
+    color: #1e293b !important;
+}
+
+body.light .medo-pro-section {
+    background: #ffffff !important;
+    color: #1e293b !important;
+}
+/* ===== Final Light Mode Fix ===== */
+
+body.light .medo-pro-section .medo-pro-heading h2,
+body.light .medo-pro-section .medo-pro-heading p,
+body.light .medo-pro-section .pro-note {
+color: #1e293b !important;
+}
+
+body.light .medo-pro-section .pro-card {
+background: #f8fafc !important;
+color: #1e293b !important;
+}
+
+body.light .medo-pro-section .pro-card h3,
+body.light .medo-pro-section .pro-card li,
+body.light .medo-pro-section .plan-price,
+body.light .medo-pro-section .plan-label {
+color: #1e293b !important;
+}
+
+body.light .pro-account-status {
+background: #f8fafc !important;
+color: #1e293b !important;
+}
+
+body.light #proAccountStatus strong,
+body.light #proAccountStatus p {
+color: #1e293b !important;
+}
+
+body.light .instapay-address {
+background: #f1f5f9 !important;
+}
+
+body.light .instapay-address strong {
+color: #6b21a8 !important;
+}
+/* تحسين وضوح الكلام في الوضع النهاري */
+body.light {
+    color: #1e293b !important;
+}
+
+body.light h1,
+body.light h2,
+body.light h3,
+body.light h4,
+body.light p,
+body.light label,
+body.light span,
+body.light li {
+    color: #1e293b;
+}
+
+body.light input,
+body.light textarea,
+body.light select {
+    color: #1e293b !important;
+}

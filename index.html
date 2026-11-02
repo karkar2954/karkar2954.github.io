@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6d28d9">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="manifest" href="./manifest.json">
+    <title>Medo | منصتك لتنظيم الدراسة والحياة</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="features.css">
+    <link rel="icon" type="image/png" href="logo.png.png">
+</head>
+
+<body>
+
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <h2>Medo</h2>
+
+        <div class="nav-links">
+        <a href="#platform-home">الرئيسية</a>
+            <a href="#study-planner">أدوات الدراسة</a>
+            <a href="#todo-area">تنظيم المهام</a>
+            <a href="#medo-tools">التركيز والتقويم</a>
+            <a href="#profile">حسابي</a>
+            <a href="#medo-pro">Medo Pro 💎</a>
+            <a href="login.html">تسجيل الدخول</a>
+        </div>
+
+        <button id="themeBtn" onclick="changeTheme()">
+            ☀️ الوضع النهاري
+        </button>
+    </nav>
+
+    <header class="platform-hero" id="platform-home">
+        <span class="hero-kicker">مساحتك اليومية للدراسة والإنجاز</span>
+        <h1>أهلاً بيك في <span>Medo</span> 👋</h1>
+        <p>نظّم مذاكرتك، رتّب مهامك، تابع تقدمك، وخلي يومك أوضح وأسهل.</p>
+        <div class="hero-actions">
+            <a href="#todo-area" class="hero-primary">ابدأ تنظيم يومك</a>
+            <a href="#study-tools" class="hero-secondary">اكتشف الأدوات</a>
+        </div>
+        <div class="platform-shortcuts">
+            <a href="#todo-area"><b>📝</b><strong>المهام</strong><small>رتّب أولوياتك</small></a>
+            <a href="#medo-tools"><b>⏱️</b><strong>التركيز</strong><small>ذاكر من غير تشتيت</small></a>
+            <a href="#medo-tools"><b>📅</b><strong>المواعيد</strong><small>تابع تسليماتك</small></a>
+            <a href="#dashboard"><b>🏆</b><strong>إنجازك</strong><small>شوف تقدمك</small></a>
+        </div>
+    </header>
+    <section class="study-intro" id="study-tools">
+        <h2>كل يوم بخطوة صغيرة 📚</h2>
+        <p>ابدأ بتحديد اللي محتاج تخلصه، وبعدها استخدم أدوات Medo لمتابعة تقدمك.</p>
+        <div class="study-points">
+            <article><span>🎯</span><h3>حدد هدفك</h3><p>اكتب أهم حاجة عايز تنجزها النهارده.</p></article>
+            <article><span>🧠</span><h3>ركز في وقتك</h3><p>قسّم وقتك لجلسات تركيز وراحة.</p></article>
+            <article><span>📈</span><h3>تابع تقدمك</h3><p>راجع المهام المكتملة وخطوتك الجاية.</p></article>
+        </div>
+    </section>
+
+    <section class="study-planner" id="study-planner">
+        <div class="planner-heading">
+            <div><span class="planner-kicker">خطتك الدراسية</span><h2>📚 خطّط مذاكرتك</h2><p>سجّل موادك ومحاضراتك وامتحاناتك في مكان واحد.</p></div>
+            <div class="planner-count" id="studyCount">0 موعد</div>
+        </div>
+        <form id="studyForm" class="study-form">
+            <label>اسم المادة<input id="studySubject" maxlength="60" placeholder="مثال: مبادئ الإدارة" required></label>
+            <label>نوع الموعد<select id="studyType"><option value="مذاكرة">📖 مذاكرة</option><option value="محاضرة">🎓 محاضرة</option><option value="امتحان">📝 امتحان</option><option value="تسليم">📌 تسليم</option></select></label>
+            <label>التاريخ<input id="studyDate" type="date" required></label>
+            <label>الوقت<input id="studyTime" type="time"></label>
+            <label class="study-notes">ملاحظات (اختياري)<input id="studyNotes" maxlength="160" placeholder="الفصل المطلوب أو مكان المحاضرة..."></label>
+            <button type="submit">إضافة للخطة ＋</button>
+        </form>
+        <div class="study-list-head"><h3>مواعيدك القادمة</h3><select id="studyFilter" aria-label="تصفية المواعيد"><option value="الكل">كل المواعيد</option><option>مذاكرة</option><option>محاضرة</option><option>امتحان</option><option>تسليم</option></select></div>
+        <div id="studyEvents" class="study-events" aria-live="polite"><p class="study-empty">لسه مفيش مواعيد. أضف أول مادة أو موعد دراسي 👆</p></div>
+        <small class="study-storage-note">خطتك محفوظة على حسابك ويمكنك الوصول إليها بعد تسجيل الدخول.</small>
+    </section>
+
+    <section class="weekly-planner" id="weekly-planner">
+      <div class="weekly-head"><div><span class="planner-kicker">نظّم وقتك</span><h2>🗓️ جدول مذاكرتي الأسبوعي</h2><p>وزّع جلسات المذاكرة على أيام الأسبوع وتابع جدولك بسهولة.</p></div></div>
+      <form id="weeklyForm" class="weekly-form">
+        <label>المادة<input id="weeklySubject" maxlength="60" placeholder="مثال: قواعد بيانات" required></label>
+        <label>اليوم<select id="weeklyDay"><option value="6">السبت</option><option value="0">الأحد</option><option value="1">الإثنين</option><option value="2">الثلاثاء</option><option value="3">الأربعاء</option><option value="4">الخميس</option><option value="5">الجمعة</option></select></label>
+        <label>وقت البداية<input id="weeklyTime" type="time" required></label>
+        <label>المدة<select id="weeklyDuration"><option value="30">30 دقيقة</option><option value="45">45 دقيقة</option><option value="60" selected>ساعة</option><option value="90">ساعة ونصف</option><option value="120">ساعتان</option><option value="180">3 ساعات</option></select></label>
+        <button type="submit">إضافة للجداول ＋</button>
+      </form>
+      <div id="weeklySchedule" class="weekly-days" aria-live="polite"></div>
+      <small class="study-storage-note">📌 جدولك الأسبوعي بيتحفظ على حسابك، وتقدر تفتحه من أي جهاز بعد تسجيل الدخول.</small>
+    </section>
+
+    <!-- أزرار الحساب -->
+    <button id="logoutBtn" onclick="logout()" style="display:none;">
+        تسجيل الخروج 🚪
+    </button>
+<button id="deleteAccountBtn"
+    onclick="deleteAccount()"
+    style="display:none; background:red; color:white;">
+    حذف الحساب 🗑️
+</button>
+<section class="dashboard" id="dashboard">
+    <h2>📊 لوحة التحكم</h2>
+    <p>أهلاً بيك في لوحة تحكم Medo ❤️</p>
+
+    <div class="dashboard-cards">
+        <div class="dashboard-card">
+            <h3>📝 مهامي</h3>
+            <p id="dashTasks">0</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>✅ المهام المكتملة</h3>
+            <p id="dashCompleted">0</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>👤 حسابي</h3>
+            <p id="dashAccount">نشط</p>
+        </div>
+    </div>
+    <div class="dashboard-card">
+    <h3>🏆 نقاطي</h3>
+    <p id="dashPoints">0</p>
+    <h3 id="dashLevel">المستوى 1</h3>
+    <div class="progress-container">
+        <div id="levelProgress" class="progress-bar"></div>
+    </div>
+    <small id="nextLevel">باقي 100 نقطة للمستوى التالي</small>
+</div>
+</section>
+<section class="achievements-section" id="achievements">
+    <h2>🏆 إنجازاتي</h2>
+    <p>إنجازاتك اللي حققتها في موقع Medo</p>
+
+    <div id="achievementsList">
+        جاري تحميل الإنجازات...
+    </div>
+</section>
+    <!-- الملف الشخصي -->
+    <section class="profile-section" id="profile">
+
+        <h2>👤 ملفي الشخصي</h2>
+
+        <img
+            src="medo.png"
+            id="profileAvatar"
+            class="profile-avatar"
+            alt="الصورة الشخصية"
+        >
+
+        <div>
+            <input
+                type="file"
+                id="avatarInput"
+                accept="image/*"
+                style="margin: 15px;"
+            >
+
+            <button onclick="uploadAvatar()">
+                رفع الصورة الشخصية 📷
+            </button>
+        </div>
+
+        <div class="profile-info">
+            <p>
+                اسم المستخدم:
+                <span id="profileName">جاري التحميل...</span>
+            </p>
+        </div>
+
+        <div class="profile-info">
+            <p>
+                البريد الإلكتروني:
+                <span id="profileEmail">جاري التحميل...</span>
+            </p>
+        </div>
+
+        <div class="profile-info">
+            <p>
+                تاريخ إنشاء الحساب:
+                <span id="profileDate">جاري التحميل...</span>
+            </p>
+        </div>
+
+        <button onclick="editProfileName()">
+            تعديل الاسم ✏️
+        </button>
+
+    </section>
+
+    <!-- تغيير الألوان -->
+    <div class="colors">
+
+        <button onclick="changeColor('#2563eb')">
+            أزرق 🔵
+        </button>
+
+        <button onclick="changeColor('#16a34a')">
+            أخضر 🟢
+        </button>
+
+        <button onclick="changeColor('#9333ea')">
+            بنفسجي 🟣
+        </button>
+
+    </div>
+
+    <!-- تغيير الخلفية -->
+    <div class="backgrounds">
+
+        <button onclick="changeBackground('#111827')">
+            داكن 🌑
+        </button>
+
+        <button onclick="changeBackground('#1e3a8a')">
+            أزرق 🌊
+        </button>
+
+        <button onclick="changeBackground('#064e3b')">
+            أخضر 🌿
+        </button>
+
+    </div>
+
+    <button onclick="resetSettings()">
+        إعادة ضبط الإعدادات 🔄
+    </button>
+
+    <!-- الرئيسية -->
+    <div class="card" id="home">
+
+        <h1 id="welcome">عن Medo 👋</h1>
+
+        <img
+            src="medo.png"
+            alt="شعار Medo"
+            class="profile-logo"
+        >
+
+        <p id="greeting"></p>
+
+        <button onclick="changeName()">
+            تغيير الاسم ✏️
+        </button>
+
+        <h2>منصة بتكبر معاك</h2>
+
+        <button onclick="resetName()">
+            مسح الاسم
+        </button>
+
+        <p>
+            Medo مشروع هدفه يساعد الطلاب والشباب ينظموا الدراسة والمهام والحياة اليومية في مكان واحد.
+        </p>
+
+        <a
+            id="contact"
+            href="https://wa.me/201033045299"
+            target="_blank"
+            class="whatsapp"
+        >
+            تواصل معايا على واتساب
+        </a>
+
+        <!-- من أنا -->
+        <section class="about" id="about">
+
+            <h2>مين أنا؟</h2>
+
+            <p>
+                أنا Medo، مهتم بالتكنولوجيا والبرمجة،
+                وبطوّر مهاراتي عشان أبقى مطور ويب محترف.
+            </p>
+
+        </section>
+
+        <!-- المهارات -->
+        <div class="skills" id="skills">
+
+            <h2>مهاراتي</h2>
+
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+
+        </div>
+
+        <!-- المشاريع -->
+        <section id="projects">
+
+            <h2>مشاريعي 🚀</h2>
+
+            <div class="project-card">
+
+                <h3>موقعي الشخصي - Medo</h3>
+
+                <p>
+                    أول مشروع ليا في تعلم تصميم وتطوير المواقع
+                    باستخدام HTML وCSS وJavaScript.
+                </p>
+
+                <a
+                    href="https://karkar2954.github.io/medo-website/"
+                    target="_blank"
+                >
+                    زيارة المشروع
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- الأهداف -->
+        <section class="goals" id="goals">
+
+            <h2>أهدافي 🚀</h2>
+
+            <p>
+                هدفي أتعلم تصميم المواقع وأبقى
+                Front-End Developer محترف.
+            </p>
+
+        </section>
+
+        <!-- معرض الألعاب -->
+        <section id="gallery">
+
+            <h2>معرض الألعاب 🎮</h2>
+
+            <p>ألعابي المفضلة</p>
+
+            <div class="gallery-container">
+
+                <div class="gallery-item">
+
+                    <img src="images/fc26.jpg" alt="FC 26">
+
+                    <h3>EA SPORTS FC 26 ⚽</h3>
+
+                </div>
+
+                <div class="gallery-item">
+
+                    <img
+                        src="images/rdr2.jpg"
+                        alt="Red Dead Redemption 2"
+                    >
+
+                    <h3>Red Dead Redemption 2 🤠</h3>
+
+                </div>
+
+                <div class="gallery-item">
+
+                    <img src="images/ps4.jpg" alt="PlayStation 4">
+
+                    <h3>PlayStation 4 🎮</h3>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- الهوايات -->
+        <section id="hobbies">
+
+            <h2>هواياتي</h2>
+
+            <p>بحب التكنولوجيا والألعاب</p>
+
+        </section>
+
+    </div>
+
+    <!-- عدد الزيارات -->
+    <div class="visits">
+
+        <h2>عدد زيارات الموقع 👀</h2>
+
+        <p>
+            عدد مرات فتح الموقع:
+            <span id="visitCount">0</span>
+        </p>
+
+    </div>
+
+    <!-- الساعة والتاريخ -->
+    <div class="clock">
+
+        <h2>الساعة والتاريخ ⏰</h2>
+
+        <p id="time"></p>
+        <p id="date"></p>
+
+    </div>
+
+    <!-- قائمة المهام -->
+    <div class="todo" id="todo-area">
+
+        <h2>قائمة مهامي 📝</h2>
+
+        <input
+            type="text"
+            id="taskInput"
+            placeholder="اكتب مهمتك هنا"
+        >
+
+        <select id="taskPriority">
+
+            <option value="low">🟢 أولوية منخفضة</option>
+
+            <option value="medium" selected>
+                🟡 أولوية متوسطة
+            </option>
+
+            <option value="high">🔴 أولوية عالية</option>
+
+        </select>
+<input
+    type="date"
+    id="taskDueDate"
+    title="موعد انتهاء المهمة"
+>
+        <button onclick="addTask()">
+            إضافة مهمة ➕
+        </button>
+
+        <input
+            type="text"
+            id="searchTask"
+            placeholder="ابحث عن مهمة 🔍"
+            oninput="searchTasks()"
+        >
+
+        <button onclick="clearSearch()">
+            مسح البحث ✖️
+        </button>
+
+        <button onclick="showAllTasks()">
+            عرض كل المهام 📋
+        </button>
+
+        <select id="taskFilter" onchange="applyTaskFilters()">
+
+            <option value="all">كل المهام</option>
+
+            <option value="completed">
+                المهام المكتملة
+            </option>
+
+            <option value="uncompleted">
+                المهام غير المكتملة
+            </option>
+
+        </select>
+
+        <select id="taskSort" onchange="sortTasks()">
+
+            <option value="newest">الأحدث أولاً</option>
+
+            <option value="oldest">الأقدم أولاً</option>
+
+        </select>
+
+        <select
+            id="priorityFilter"
+            onchange="applyTaskFilters()"
+        >
+
+            <option value="all">كل الأولويات</option>
+
+            <option value="high">🔴 أولوية عالية</option>
+
+            <option value="medium">🟡 أولوية متوسطة</option>
+
+            <option value="low">🟢 أولوية منخفضة</option>
+
+        </select>
+
+        <ul id="taskList"></ul>
+
+        <button onclick="clearTasks()">
+            مسح كل المهام 🗑️
+        </button>
+
+        <button onclick="clearCompletedTasks()">
+            مسح المهام المكتملة 🗑️
+        </button>
+
+        <!-- إحصائيات المهام -->
+        <div class="task-stats">
+
+            <p>
+                إجمالي المهام:
+                <span id="totalTasks">0</span>
+            </p>
+
+            <p>
+                المهام المكتملة:
+                <span id="completedTasks">0</span>
+            </p>
+
+            <p>
+                المهام المتبقية:
+                <span id="remainingTasks">0</span>
+            </p>
+
+        </div>
+
+        <!-- شريط التقدم -->
+        <div class="progress-container">
+
+            <div id="progressBar"></div>
+
+        </div>
+
+        <p id="progressText">
+            نسبة الإنجاز: 0%
+        </p>
+
+    </div>
+
+    
+    <section class="medo-pro-section" id="medo-pro">
+    <div class="medo-pro-heading">
+        <span class="pro-kicker">خطوتك التالية مع Medo</span>
+        <h2>💎 Medo Pro</h2>
+        <p>خطة شهرية اختيارية بمميزات إضافية تساعدك تذاكر بذكاء وتتابع تقدمك بصورة أوضح.</p>
+        <span class="pro-status">اشتراك شهري — 49 جنيه لمدة 30 يومًا</span>
+    </div>
+
+    <div class="pro-plans">
+        <article class="pro-card">
+            <span class="plan-label">الخطة المجانية</span>
+            <h3>Medo Free</h3>
+            <p class="plan-price">مجانية دائمًا</p>
+            <ul>
+                <li>✓ تنظيم المهام والأولويات</li>
+                <li>✓ أدوات الدراسة والجدول الأسبوعي</li>
+                <li>✓ مؤقت التركيز</li>
+                <li>✓ متابعة الإنجاز الأساسية</li>
+            </ul>
+            <a class="pro-button pro-button-light" href="#todo-area">استخدم أدوات Medo</a>
+        </article>
+
+        <article class="pro-card pro-card-featured">
+            <span class="plan-label">الخطة الشهرية المقترحة</span>
+            <h3>Medo Pro ✨</h3>
+            <p class="plan-price">49 جنيه <small>/ شهريًا</small></p>
+            <ul>
+                <li>◷ تقارير تقدم دراسي متقدمة</li>
+                <li>◷ تخطيط مذاكرة ذكي</li>
+                <li>◷ مساعد دراسي بقدرات أوسع</li>
+                <li>◷ تصدير الخطط والتقارير PDF</li>
+            </ul>
+            <a class="pro-button" href="#pro-payment-box">اشترك الآن 💎</a>
+        </article>
+    </div>
+
+    <div class="pro-account-status" id="proAccountStatus" aria-live="polite">
+        <strong>حالة عضويتك: جاري التحقق...</strong>
+        <p>سجّل الدخول لعرض حالة عضويتك.</p>
+    </div>
+
+    <div class="pro-payment-box" id="pro-payment-box">
+        <h3>💎 اشترك في Medo Pro</h3>
+
+        <p>اشترك مقابل 49 جنيه لمدة 30 يومًا، واستمتع بمميزات العضوية المتاحة.</p>
+
+        <p>حوّل المبلغ من خلال تطبيق InstaPay إلى عنوان الدفع التالي:</p>
+
+        <div class="instapay-address" dir="ltr">
+            <strong id="instaPayAddress">mohamedkarkar21@instapay</strong>
+            <button type="button" onclick="copyInstaPay()">نسخ العنوان 📋</button>
+        </div>
+
+        <p>بعد التحويل، اكتب رقم العملية لإرسال طلب الاشتراك.</p>
+
+        <form id="proPaymentForm">
+            <label for="proTransaction">رقم عملية التحويل:</label>
+            <input
+                type="text"
+                id="proTransaction"
+                placeholder="اكتب رقم العملية"
+                required
+            >
+            <button type="submit" class="pro-button">
+                إرسال طلب الاشتراك
+            </button>
+        </form>
+
+        <p id="proPaymentMessage" aria-live="polite"></p>
+    </div>
+
+    <script>
+    function copyInstaPay() {
+        const address = "mohamedkarkar21@instapay";
+        navigator.clipboard.writeText(address)
+            .then(() => alert("تم نسخ عنوان إنستاباي ❤️"))
+            .catch(() => alert("انسخ العنوان يدويًا: " + address));
+    }
+    </script>
+
+    <p class="pro-note">
+        السعر 49 جنيه شهريًا لمدة 30 يومًا. بعض المميزات الإضافية قيد التطوير، ويتم تفعيل العضوية يدويًا بعد التأكد من وصول التحويل.
+    </p>
+</section>
+
+    <!-- العودة للأعلى -->
+    <button
+        id="backToTop"
+        onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    >
+        ⬆️
+    </button>
+
+    <!-- ملف JavaScript -->
+    <script type="module" src="script.js"></script>
+    <script type="module" src="study-tools.js"></script>
+    <script type="module" src="weekly-schedule.js"></script>
+    <script type="module" src="features.js"></script>
+    <script type="module" src="pro-membership.js"></script>
+<div id="notificationBox"></div>
+</body>
+</html>
