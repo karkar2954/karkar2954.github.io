@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://karkar2954.github.io/sitemap.xml
