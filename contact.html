@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا | Medo</title>
+
+```
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        background: #111827;
+        color: white;
+        line-height: 1.8;
+    }
+
+    .container {
+        max-width: 650px;
+        margin: 40px auto;
+        padding: 30px;
+        background: #1f2937;
+        border-radius: 18px;
+        border-top: 5px solid #38bdf8;
+    }
+
+    h1 {
+        color: #38bdf8;
+        text-align: center;
+    }
+
+    .description {
+        text-align: center;
+        color: #d1d5db;
+    }
+
+    label {
+        display: block;
+        margin-top: 15px;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 13px;
+        margin-top: 7px;
+        border: 1px solid #374151;
+        border-radius: 8px;
+        background: #111827;
+        color: white;
+        font-size: 16px;
+    }
+
+    textarea {
+        height: 140px;
+        resize: vertical;
+    }
+
+    button {
+        width: 100%;
+        padding: 13px;
+        margin-top: 20px;
+        border: none;
+        border-radius: 8px;
+        background: #2563eb;
+        color: white;
+        font-size: 17px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #1d4ed8;
+    }
+
+    .email {
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    a {
+        color: #38bdf8;
+        text-decoration: none;
+    }
+
+    .back {
+        display: block;
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    footer {
+        text-align: center;
+        color: #9ca3af;
+        margin-top: 30px;
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<div class="container">
+
+    <h1>تواصل معنا 📩</h1>
+
+    <p class="description">
+        يسعدني تواصلك معايا!
+        لو عندك سؤال أو اقتراح ابعتلي رسالة.
+    </p>
+
+    <form id="contactForm">
+
+        <label>اسمك</label>
+        <input type="text" id="name" required
+               placeholder="اكتب اسمك">
+
+        <label>بريدك الإلكتروني</label>
+        <input type="email" id="email" required
+               placeholder="example@gmail.com">
+
+        <label>رسالتك</label>
+        <textarea id="message" required
+                  placeholder="اكتب رسالتك هنا..."></textarea>
+
+        <button type="submit">
+            إرسال الرسالة 🚀
+        </button>
+
+    </form>
+
+    <div class="email">
+        أو راسلني مباشرة:
+        <br>
+        <a href="mailto:mkarkar202@gmail.com">
+            mkarkar202@gmail.com
+        </a>
+    </div>
+
+    <a href="index.html" class="back">
+        🏠 العودة للصفحة الرئيسية
+    </a>
+
+</div>
+
+<footer>
+    جميع الحقوق محفوظة © Medo 2026
+</footer>
+
+<script>
+    document.getElementById("contactForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        const subject = encodeURIComponent("رسالة جديدة من موقع Medo");
+
+        const body = encodeURIComponent(
+            "الاسم: " + name +
+            "\nالبريد الإلكتروني: " + email +
+            "\nالرسالة: " + message
+        );
+
+        window.location.href =
+            "mailto:mkarkar202@gmail.com?subject=" +
+            subject + "&body=" + body;
+
+    });
+</script>
+```
+
+</body>
+</html>
